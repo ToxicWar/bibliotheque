@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Bibliothèque</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<div class="container theme-showcase" role="main">
+      <div class="page-header">
+        <h1>Книги</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Жанры</th>
+                <th>Издатель</th>
+                <th>Год издания</th>
+              </tr>
+            </thead>
+            <tbody>
+							{% for book in books %}
+								<tr>
+                  <td>{{ book.id }}</td>
+									<td>{{ book.title }}</td>
+									<td>{{ book.description }}</td>
+									<td>{{ book.get_genres }}</td>
+									<td>{{ book.publisher }}</td>
+									<td>{{ book.imprint_date }}</td>
+								</tr>
+							{% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="page-header">
+        <h1>Авторы</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Имя</th>
+                <th>Информация о авторе</th>
+                <th>Жанры</th>
+              </tr>
+            </thead>
+            <tbody>
+							{% for author in authors %}
+								<tr>
+                  <td>{{ author.id }}</td>
+									<td>{{ author.name }}</td>
+									<td>{{ author.description }}</td>
+									<td>{{ author.get_genres }}</td>
+								</tr>
+							{% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="page-header">
+        <h1>Жанры</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Жанр</th>
+              </tr>
+            </thead>
+            <tbody>
+							{% for genre in genres %}
+								<tr>
+                  <td>{{ genre.id }}</td>
+									<td>{{ genre.title }}</td>
+								</tr>
+							{% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="page-header">
+        <h1>Издатели</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Жанр</th>
+                <th>Город</th>
+              </tr>
+            </thead>
+            <tbody>
+							{% for publisher in publishers %}
+								<tr>
+                  <td>{{ publisher.id }}</td>
+									<td>{{ publisher.title }}</td>
+									<td>{{ publisher.city }}</td>
+								</tr>
+							{% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
