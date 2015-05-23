@@ -21,6 +21,7 @@
                 <th>#</th>
                 <th>Название</th>
                 <th>Описание</th>
+                <th>Авторы</th>
                 <th>Жанры</th>
                 <th>Издатель</th>
                 <th>Год издания</th>
@@ -32,6 +33,7 @@
                   <td class="child">{{ book.id }}</td>
 									<td class="child">{{ book.title }}</td>
 									<td class="child">{{ book.description }}</td>
+									<td class="child">{{ book.get_authors }}</td>
 									<td class="child">{{ book.get_genres }}</td>
 									<td class="child">{{ book.publisher }}</td>
 									<td class="child">{{ book.imprint_date }}</td>

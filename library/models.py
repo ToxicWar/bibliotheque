@@ -6,12 +6,16 @@ from django.db import models
 class Book(models.Model):
     title = models.CharField('Title', max_length=255)
     description = models.CharField('Description', max_length=1000, blank=True)
+    authors = models.ManyToManyField('Author', related_name='books', blank=True, null=True)
     genres = models.ManyToManyField('Genre', related_name='books', blank=True, null=True)
     publisher = models.ForeignKey('Publisher', related_name='books')
     imprint_date = models.DateField('Imprint date')
 
     def get_genres(self):
         return ', '.join([genre.title for genre in self.genres.all()])
+
+    def get_authors(self):
+        return ', '.join([author.name for author in self.authors.all()])
 
     def __unicode__(self):
         return self.title
